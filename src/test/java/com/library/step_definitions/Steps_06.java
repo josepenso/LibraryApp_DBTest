@@ -83,7 +83,7 @@ public class Steps_06 {
     @Then("the librarian verify new book from database by {string}")
     public void the_librarian_verify_new_book_from_database_by(String bookName)  {
 
-        DB_Util.runQuery("select name,isbn,year,author from books where name like '"+bookName+"' and "+isbnCode+" order by isbn desc");
+        DB_Util.runQuery("select name,isbn,year,author from books where name like '"+bookName+"' and isbn="+isbnCode+" order by isbn desc");
         List<String> expectedBookInfoStored= DB_Util.getRowDataAsList(1);
 
         System.out.println(expectedBookInfoStored+" EXPECTED");

@@ -457,8 +457,8 @@ public class BrowserUtils {
     /**
      *  checks that an element is present on the DOM of a page. This does not
      *    * necessarily mean that the element is visible.
-     * @param by
-     * @param time
+     * @param
+     * @param
      */
 
 
@@ -543,6 +543,14 @@ public class BrowserUtils {
     public static WebElement waitForClickablility(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
         return wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public static void selectByVisibleText(WebElement element,String inactive){
+
+        Select select=new Select(element);
+
+        select.selectByVisibleText(inactive);
+
     }
 
 
