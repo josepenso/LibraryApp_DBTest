@@ -1,4 +1,4 @@
-package com.cydeo.runner;
+package com.library.runner;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -12,9 +12,9 @@ import org.junit.runner.RunWith;
                 "rerun:target/rerun.txt" ,
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber","pretty"},
         features = "src/test/resources/features",
-        glue = "com/trycloud/step_definitions",
-        dryRun = false,
-        tags =""
+        glue = "com/library/step_definitions",
+        dryRun =false,
+        tags ="@TS4-180"
 
 )
 public class CukesRunner {

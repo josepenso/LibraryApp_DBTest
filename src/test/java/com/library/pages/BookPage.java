@@ -1,6 +1,6 @@
-package com.cydeo.pages;
+package com.library.pages;
 
-import com.cydeo.utility.Driver;
+import com.library.utility.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -35,14 +35,13 @@ public class BookPage extends BasePage {
     @FindBy(id = "description")
     public WebElement description;
 
+    @FindBy(xpath = "//select[@id='book_group_id']")
+    public WebElement bookCategory;
+
 
 
     public WebElement editBook(String book) {
         String xpath = "//td[3][.='" + book + "']/../td/a";
         return Driver.getDriver().findElement(By.xpath(xpath));
     }
-
-
-
-
 }

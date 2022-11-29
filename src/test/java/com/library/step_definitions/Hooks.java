@@ -1,8 +1,10 @@
-package com.cydeo.step_definitions;
+package com.library.step_definitions;
 
 
 
-import com.cydeo.utility.Driver;
+import com.library.utility.Config;
+import com.library.utility.DB_Util;
+import com.library.utility.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -14,7 +16,9 @@ public class Hooks {
 
     @Before
     public void setUp(){
-        Driver.getDriver();
+
+        Driver.setupDriver(Config.getProperty("browser"));
+        Driver.getDriver().get(Config.getProperty("library_url"));
 
 
     }
@@ -33,7 +37,16 @@ public class Hooks {
         }
 
         Driver.quitDriver();
+    }
 
+    @Before("@db")
+    public void setupDB(){
+        DB_Util.createConnection();
+    }
+
+    @After("@db")
+    public void destroyDB(){
+        DB_Util.destroy();
     }
 
 
