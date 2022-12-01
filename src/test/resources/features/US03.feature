@@ -1,7 +1,7 @@
 Feature: As a data consumer, User wants UI and DB book categories are match.
 
 	
-	@TS4-184 @db @smoke
+	@TS4-184 @db @smoke @ui
 	Scenario: Verify UI and DB book categories are match
 		    Given the user logged in as "librarian"
 		    When the user navigates to "Books" page

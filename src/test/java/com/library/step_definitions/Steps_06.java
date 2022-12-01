@@ -2,6 +2,7 @@ package com.library.step_definitions;
 
 import com.library.pages.BookPage;
 import com.library.utility.BrowserUtils;
+import com.library.utility.Config;
 import com.library.utility.DB_Util;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,8 +16,10 @@ public class Steps_06 {
     BookPage bookPage= new BookPage();
     List<String> actualBookInfoAdded = new ArrayList<>();
     List<String> expectedBookInfo= new ArrayList<>();
-
     String isbnCode;
+
+    String numOfRecordsToSee = Config.getProperty("numOfRecordsToSee");
+
     @When("the librarian click to add book")
     public void the_librarian_click_to_add_book() {
         BrowserUtils.waitFor(3);
@@ -67,7 +70,9 @@ public class Steps_06 {
         System.out.println("bookName = " + bookName);
         BrowserUtils.waitForClickablility(bookPage.search, 5).sendKeys(bookName);
         BrowserUtils.waitFor(3);
-        BrowserUtils.waitForClickablility(bookPage.editBook(bookName), 5).click();
+        bookPage.numberOfRecordsDD.sendKeys(numOfRecordsToSee);
+        BrowserUtils.waitFor(3);
+        BrowserUtils.waitForClickablility(bookPage.getBookInfo(isbnCode), 5).click();
 
         BrowserUtils.waitFor(2);
         actualBookInfoAdded.add(bookPage.bookName.getAttribute("value"));
@@ -75,10 +80,10 @@ public class Steps_06 {
         actualBookInfoAdded.add(bookPage.year.getAttribute("value"));
         actualBookInfoAdded.add(bookPage.author.getAttribute("value"));
 
+
         System.out.println(expectedBookInfo+" EXPECTED");
         System.out.println(actualBookInfoAdded+" ACTUAL");
         Assert.assertEquals(expectedBookInfo,actualBookInfoAdded);
-
     }
     @Then("the librarian verify new book from database by {string}")
     public void the_librarian_verify_new_book_from_database_by(String bookName)  {

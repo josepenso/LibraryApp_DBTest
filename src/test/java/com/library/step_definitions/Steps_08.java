@@ -18,6 +18,7 @@ public class Steps_08 {
     String inactiveStatus;
     List<String> expectedData;
 
+
     @When("the user clicks Edit User button")
     public void the_user_clicks_edit_user_button() {
 
@@ -73,15 +74,15 @@ public class Steps_08 {
     public void the_user_changes_current_user_status_to(String inactive, String active) {
 
         BrowserUtils.waitFor(2);
-        BrowserUtils.selectByVisibleText(usersPage.userStatusDropdown,inactive);
+       BrowserUtils.selectByVisibleText(usersPage.userStatusDropdown,inactive);
 
-       // BrowserUtils.waitFor(1);
-        BrowserUtils.selectByVisibleText(usersPage.numberOfUserDropdown,"500");
+        usersPage.search.sendKeys(email);
         BrowserUtils.waitFor(2);
         usersPage.editUser(email).click();
         BrowserUtils.waitFor(2);
         BrowserUtils.selectByVisibleText(usersPage.statusDropdown,active);
         usersPage.saveChanges.click();
+
 
         System.out.println("user "+email+ " is activated");
 

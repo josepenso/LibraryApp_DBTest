@@ -16,7 +16,7 @@ public class Steps_03 {
     List<String> actualCategoryList;
 
     @When("the user open book {string}")
-    public void i_open_book(String bookName) {
+    public void the_user_open_book(String bookName) {
 
         System.out.println("bookName = " + bookName);
         BrowserUtils.waitForClickablility(bookPage.search, 5).sendKeys(bookName);
@@ -60,7 +60,7 @@ public class Steps_03 {
 
         String query = "select name,isbn,author,description,year from books where name='" + bookName + "'";
         DB_Util.runQuery(query);
-        //store nformation
+
 
 
         List<String> bookInfo = DB_Util.getRowDataAsList(1);
@@ -69,6 +69,7 @@ public class Steps_03 {
         System.out.println(bookInfo);
 
         for (int i = 0; i < bookInfo.size(); i++) {
+
             Assert.assertEquals(bookInfo.get(i), actualBookInfo.get(i));
         }
 

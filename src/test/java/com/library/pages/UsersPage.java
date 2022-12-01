@@ -9,6 +9,9 @@ public class UsersPage extends BasePage {
     @FindBy(xpath = "(//tbody//a[@role='button'])[1]")
     public WebElement editUser;
 
+    @FindBy(xpath = "//input[@type='search']")
+    public WebElement search;
+
     @FindBy(id = "status")
     public WebElement statusDropdown;
 

@@ -142,6 +142,23 @@ public class BookPage extends BasePage {
         return allBooks;
     }
 
+    public List<String> getBookInfo(){
+        List<String> bookInfo= new ArrayList<>();
+
+        for (int i=2;i<7;i++){
+            String value =Driver.getDriver().findElement(By.xpath("//tbody//tr//td["+i+"]")).getText();
+            bookInfo.add(value);
+        }
+
+        return bookInfo;
+
+    }
+
+    public WebElement getBookInfo(String data) {
+        String xpath = "//td[.='"+data+"']/..//a";
+        return Driver.getDriver().findElement(By.xpath(xpath));
+    }
+
 
 
 }

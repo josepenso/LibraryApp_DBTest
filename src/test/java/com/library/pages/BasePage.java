@@ -30,6 +30,9 @@ public abstract  class BasePage {
     @FindBy(tagName = "h3")
     public WebElement pageHeader;
 
+    @FindBy(xpath = "//input[@type='search']")
+    public WebElement search;
+
     @FindBy(css = "#navbarDropdown>span")
     public WebElement accountHolderName;
 

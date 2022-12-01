@@ -1,7 +1,7 @@
 Feature: As a librarian, I should be able to add new books to the library.
 
 	
-	@TS4-190 @db @smoke
+	@TS4-190 @db @smoke @ui
 	Scenario Outline: Verify added book is matching with DB
 		Given the user logged in as "librarian"
 		  And the user navigates to "Books" page
@@ -16,6 +16,6 @@ Feature: As a librarian, I should be able to add new books to the library.
 		  Then the librarian verify new book from database by "<Book Name>"
 		  Examples:
 		    | Book Name             | ISBN     | Year | Author          | Book Category        |
-		    | Clean Code            | 999239923 | 2021 | Robert C.Martin | Drama               |
+		    | Clean Code            | 8888888888 | 2021 | Robert C.Martin| Drama                |
 		    | Head First Java       | 976112021 | 2021 | Kathy Sierra   | Action and Adventure |
 		    | The Scrum Field Guide | 9967112021 | 2006 | Mitch Lacey   | Short Story          |

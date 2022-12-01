@@ -1,7 +1,7 @@
 Feature:As a data consumer, I want UI and DB book information are match.
 
 	
-	@TS4-186 @db @smoke
+	@TS4-186 @db @smoke @ui
 	Scenario: Verify UI and DB book information are match
 		Given the user logged in as "librarian"
 		    And the user navigates to "Books" page

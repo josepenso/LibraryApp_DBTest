@@ -1,7 +1,7 @@
 Feature: As a student, I should be able to borrow a book
 
 	
-	@TS4-192 @db @smoke
+	@TS4-192 @db @smoke @ui
 	Scenario: Verify user is able to borrow new books
 		Given the user logged in as "student"
 		  And the user navigates to "Books" page
