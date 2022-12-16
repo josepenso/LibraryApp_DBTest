@@ -21,6 +21,7 @@ public class Driver {
 
     public static void setupDriver(String browser) {
 
+        browser= System.getProperty("browser")!=null ? browser=System.getProperty("browser"): browser;
 
         if (browser.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();

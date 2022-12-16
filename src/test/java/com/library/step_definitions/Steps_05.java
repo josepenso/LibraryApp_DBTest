@@ -14,10 +14,10 @@ public class Steps_05 {
         DB_Util.runQuery(query);
     }
     @Then("verify {string} is the most popular book genre.")
-    public void verify_is_the_most_popular_book_genre(String actualGenre) {
+    public void verify_is_the_most_popular_book_genre(String expectedGenre) {
 
-        String expectedGenre= DB_Util.getFirstRowFirstColumn();
-        Assert.assertEquals(expectedGenre,actualGenre);
+        String actualGenre= DB_Util.getFirstRowFirstColumn();
+        Assert.assertEquals(actualGenre,expectedGenre);
 
     }
 
