@@ -1,8 +1,10 @@
-package com.cydeo.step_definitions;
+package com.library.step_definitions;
 
 
 
-import com.cydeo.utility.Driver;
+import com.library.utility.Config;
+import com.library.utility.DB_Util;
+import com.library.utility.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -12,16 +14,18 @@ import org.openqa.selenium.TakesScreenshot;
 
 public class Hooks {
 
-    @Before
+    @Before("@ui")
     public void setUp(){
-        Driver.getDriver();
+
+        Driver.setupDriver(Config.getProperty("browser"));
+        Driver.getDriver().get(Config.getProperty("library_url"));
 
 
     }
 
 
 
-    @After
+    @After("@ui")
     public void teardownScenario(Scenario scenario) {
         // We will implement taking screenshot in this method
         //System.out.println("It will be closing browser using cucumber @After each scenario");
@@ -33,7 +37,16 @@ public class Hooks {
         }
 
         Driver.quitDriver();
+    }
 
+    @Before("@db")
+    public void setupDB(){
+        DB_Util.createConnection();
+    }
+
+    @After("@db")
+    public void destroyDB(){
+        DB_Util.destroy();
     }
 
 

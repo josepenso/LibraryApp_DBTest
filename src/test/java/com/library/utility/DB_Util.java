@@ -1,4 +1,4 @@
-package com.cydeo.utility;
+package com.library.utility;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -39,9 +39,9 @@ public class DB_Util {
      */
     public static void createConnection(){
 
-        String url      = Config.getProperty("library2.db.url") ;
-        String username = Config.getProperty("library2.db.username") ;
-        String password = Config.getProperty("library2.db.password") ;
+        String url      = Config.getProperty("library2.db.url");
+        String username = Config.getProperty("library2.db.username");
+        String password = Config.getProperty("library2.db.password");
 
         createConnection(url, username, password);
 
