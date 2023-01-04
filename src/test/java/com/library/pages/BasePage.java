@@ -1,6 +1,6 @@
-package com.cydeo.pages;
+package com.library.pages;
 
-import com.cydeo.utility.Driver;
+import com.library.utility.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,6 +29,9 @@ public abstract  class BasePage {
 
     @FindBy(tagName = "h3")
     public WebElement pageHeader;
+
+    @FindBy(xpath = "//input[@type='search']")
+    public WebElement search;
 
     @FindBy(css = "#navbarDropdown>span")
     public WebElement accountHolderName;

@@ -1,4 +1,4 @@
-package com.cydeo.utility;
+package com.library.utility;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +20,8 @@ public class Driver {
     private static final String gridAddress = "localhost";
 
     public static void setupDriver(String browser) {
+
+        browser= System.getProperty("browser")!=null ? browser=System.getProperty("browser"): browser;
 
         if (browser.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
